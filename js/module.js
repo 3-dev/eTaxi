@@ -1,71 +1,60 @@
 var res;
 var stateConnexion = false;
-var myApp = angular.module("eTaxi",[
-    
-  'ngWebSocket'
-  ])
-.factory('Messages', function($websocket) {
-  //var ws = $websocket('ws://echo.websocket.org/');
-  //var ws = $websocket('ws://192.168.1.6:1010/WSEtaxi/etaxi');
-  //var ws = $websocket('ws://localhost:1011/WSEtaxi/etaxi?login=client&type=client&pass=client&action=connexion');
-  //var ws = $websocket('ws://localhost:1011');
-  var ws = $websocket('ws://67.230.191.199:1011');
-  var collection = [];
+var myApp = angular.module("eTaxi",['ngWebSocket'])
 
-  ws.onMessage(function(event) {
-    //alert(event.data);
-    console.log('message: ', event);
-    
-    
-    try {
-      res = JSON.parse(event.data);
-      
-    } catch(e) {
-      res = {'username': 'anonymous', 'message': event.data};
-    }
+.factory('Messages',function($websocket)
+{
+var ws = $websocket('ws://67.230.191.199:1011');
+var collection = [];
 
-    collection.push({
-      username: res.username,
-      content: res.message,
-      timeStamp: event.timeStamp
-    });
-  });
+ws.onMessage(function(event){
+console.log('message: ', event);
 
-  ws.onError(function(event) {
-    console.log('connection Error', event);
-  });
+try{
+res = JSON.parse(event.data);
+}catch(e){
+res = {'username': 'anonymous', 'message': event.data};
+}
+collection.push({
+username: res.username,
+content: res.message,
+timeStamp: event.timeStamp
+});
+});
 
-  ws.onClose(function(event) {
-    console.log('connection closed', event);
-  });
+ws.onError(function(event){
+console.log('connection Error', event);
+});
 
-  ws.onOpen(function() {
-    console.log('connection open');
-    /*ws.send('Hello World');
-    ws.send('again');
-    ws.send('and again');*/
-  });
-  // setTimeout(function() {
-  //   ws.close();
-  // }, 500)
+ws.onClose(function(event){
+console.log('connection closed', event);
+});
 
-  return {
-    collection: collection,
-    status: function() {
-      return ws.readyState;
-    },
-    send: function(message) {
-       
-        if (angular.isString(message)) {
-        ws.send(message);
-      }
-      else if (angular.isObject(message)) {
-        ws.send(JSON.stringify(message));
-      }
-    }
+ws.onOpen(function(event){
+console.log('connection open');
+});
 
-  };
+setTimeout(function(){
+ws.close();
+}, 500)
+
+return{
+collection: collection,
+status: function(){
+return ws.readyState;
+},
+send: function(message){
+if(angular.isString(message)){
+ws.send(message);
+}
+else if (angular.isObject(message)){
+ws.send(JSON.stringify(message));
+}
+}
+};
+
 })
+
 
 .config(['$routeProvider', function($routeProvider){
         $routeProvider.
@@ -317,4 +306,3 @@ var myApp = angular.module("eTaxi",[
 .controller('eTaxiNew', function($scope,Messages){
             
 })
-
