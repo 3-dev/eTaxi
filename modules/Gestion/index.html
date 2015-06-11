@@ -1,0 +1,314 @@
+
+	<section class="billboard">
+		<header>
+                    <div ng-include="'Inc/menu.html'"></div>
+		</header>
+
+		<div ng-include="'Inc/section_caption.html'"></div>
+	</section><!-- Billboard End -->
+
+	<section class="services wrapper">
+                        <div class="S_icons">
+                            <img src="img/S1.png" alt="" title="" />
+                                <hr class="sp"/>
+                                <img src="img/S1 (2).png" alt="" title="" />
+                                <hr class="sp"/>
+                                <img src="img/S3 (2).png" alt="" title="" />
+			</div>
+			<ul class="desc">
+				<li>
+                                    <button class="btn btn-info" ng-click="showPanelGestion()">Gestionnaire</button>
+					
+				</li>
+				<li>
+                                    <button class="btn btn-info" ng-click="showPanelAddChauffeur()">Nouveau Chauffeur</button>
+				
+                                </li>
+				<li>
+                                    <button class="btn btn-info" ng-click="showPanelAddVehicule()">Nouveau Vehicule</button>
+				
+                                </li>
+			</ul>
+	</section><!-- services End -->
+
+        <section class="call_to_action" ng-hide="gestionPanel">
+		<div class="wrapper">
+			<img src="img/cta_image.png" alt="" title="">
+			<section class="cta_desc">
+                            <div class="center-block center" style="text-align: center;">
+                                <button class="btn btn-primary btn-attrib" style="width: 140px;" ng-click="tabChauff = true">CHAUFFEURS</button>
+                                <button class="btn btn-primary btn-attrib" style="margin-left: 40px; width: 140px;" ng-click="tabChauff = false">VEHICULES</button>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div ng-show="tabChauff">
+                                <h3 align="center">Liste des Chauffeurs</h3> 
+                                <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                                    <thead>
+                                            <tr>
+                                                    <th style="text-align: center;"> Nom </th>
+                                                    <th style="text-align: center;"> Prenom </th>
+                                                    <th style="text-align: center;"> Num de P.C. </th>
+                                                    <th style="text-align: center;"> Année </th>
+                                                    <th style="text-align: center;">Actions</th>
+                                            </tr>
+                                    </thead>   
+                                    <tbody>
+                                        <tr>
+                                                  <td class="center">Toure</td>
+                                                  <td class="center">Moussa</td>
+                                                  <td class="center">01-14-05152015</td>
+                                                  <td class="center" >
+                                                          <span class="label label-warning">2014</span>
+                                                  </td>
+                                                  <td class="center" style="text-align: center;">
+                                                          <button class="btn btn-primary btn-attrib" ng-click="modalInfosChauff()">
+                                                                  
+                                                                  Infos
+                                                          </button>
+                                                          
+                                                          <a class="btn btn-primary" href="#">
+                                                                  <i class="icon-trash icon-white"></i> 
+                                                                  Delete
+                                                          </a>
+                                                  </td>
+                                          </tr>
+                                    
+
+
+                                    </tbody>
+                                </table> 
+                            </div>
+                            <div ng-hide="tabChauff">
+                                <h3 align="center">Liste des Vehicules</h3>
+                                <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                                    <thead>
+                                            <tr>
+                                                    <th style="text-align: center;"> Matricule </th>
+                                                    <th style="text-align: center;"> Serie </th>
+                                                    <th style="text-align: center;"> Année </th>
+                                                    <th style="text-align: center;">Actions</th>
+                                            </tr>
+                                    </thead>   
+                                    <tbody>
+                                        <tr>
+                                                  <td class="center">339 EP 01</td>
+                                                  <td class="center">Mercedes Benz</td>
+                                                  <td class="center" >
+                                                          <span class="label label-warning">2014</span>
+                                                  </td>
+                                                  <td class="center" style="text-align: center;">
+                                                          <a class="btn btn-primary btn-attrib" href="#">
+                                                                  <i class="icon-trash icon-white"></i> 
+                                                                  Infos
+                                                          </a>
+                                                          <a class="btn btn-primary" href="#">
+                                                                  <i class="icon-trash icon-white"></i> 
+                                                                  Attribuer
+                                                          </a>
+                                                          <a class="btn btn-primary" href="#">
+                                                                  <i class="icon-trash icon-white"></i> 
+                                                                  Delete
+                                                          </a>
+                                                  </td>
+                                          </tr>
+                                    
+
+
+                                    </tbody>
+                                </table> 
+                            </div>
+                            	
+			</section>
+		</div>
+	</section><!-- call_to_action End -->
+        <section class="call_to_action" ng-hide="addChauffeurPanel">
+		<div class="wrapper">
+			<img src="img/cta_image.png" alt="" title="">
+			<section class="cta_desc">
+                            
+                            <div class="clearfix"></div>
+                            <div ng-show="tabChauff">
+                                <h3 align="center">Ajout de Chauffeur</h3> 
+                                <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                                    <thead>
+                                            <tr>
+                                                    <th style="text-align: center;"> Nom </th>
+                                                    <th style="text-align: center;"> Prenom </th>
+                                                    <th style="text-align: center;"> Num de P.C. </th>
+                                                    <th style="text-align: center;"> Année </th>
+                                                    <th style="text-align: center;"> Actions </th>
+                                            </tr>
+                                    </thead>   
+                                    <tbody>
+                                        <tr>
+                                                  <td class="center">Toure</td>
+                                                  <td class="center">Moussa</td>
+                                                  <td class="center">01-14-05152015</td>
+                                                  <td class="center" >
+                                                          <span class="label label-warning">2014</span>
+                                                  </td>
+                                                  <td class="center" style="text-align: center;">
+                                                          <button class="btn btn-primary btn-attrib" ng-click="modalInfosChauff()">
+                                                                  
+                                                                  Infos
+                                                          </button>
+                                                          
+                                                          <a class="btn btn-primary" href="#">
+                                                                  <i class="icon-trash icon-white"></i> 
+                                                                  Delete
+                                                          </a>
+                                                  </td>
+                                          </tr>
+                                    
+
+
+                                    </tbody>
+                                </table> 
+                            </div>
+                            <div ng-hide="tabChauff">
+                                <h3 align="center">Liste des Vehicules</h3>
+                                <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                                    <thead>
+                                            <tr>
+                                                    <th style="text-align: center;"> Matricule </th>
+                                                    <th style="text-align: center;"> Serie </th>
+                                                    <th style="text-align: center;"> Année </th>
+                                                    <th style="text-align: center;">Actions</th>
+                                            </tr>
+                                    </thead>   
+                                    <tbody>
+                                        <tr>
+                                                  <td class="center">339 EP 01</td>
+                                                  <td class="center">Mercedes Benz</td>
+                                                  <td class="center" >
+                                                          <span class="label label-warning">2014</span>
+                                                  </td>
+                                                  <td class="center" style="text-align: center;">
+                                                          <a class="btn btn-primary btn-attrib" href="#">
+                                                                  <i class="icon-trash icon-white"></i> 
+                                                                  Infos
+                                                          </a>
+                                                          <a class="btn btn-primary" href="#">
+                                                                  <i class="icon-trash icon-white"></i> 
+                                                                  Attribuer
+                                                          </a>
+                                                          <a class="btn btn-primary" href="#">
+                                                                  <i class="icon-trash icon-white"></i> 
+                                                                  Delete
+                                                          </a>
+                                                  </td>
+                                          </tr>
+                                    
+
+
+                                    </tbody>
+                                </table> 
+                            </div>
+                            	
+			</section>
+		</div>
+	</section><!-- call_to_action End -->
+        <section class="call_to_action" ng-hide="addVehiculePanel">
+		<div class="wrapper">
+			<img src="img/cta_image.png" alt="" title="">
+			<section class="cta_desc">
+                            
+                            <div class="clearfix"></div>
+                            <div ng-show="tabChauff">
+                                <h3 align="center">Ajout de Vehicule</h3> 
+                                <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                                    <thead>
+                                            <tr>
+                                                    <th style="text-align: center;"> Nom </th>
+                                                    <th style="text-align: center;"> Prenom </th>
+                                                    <th style="text-align: center;"> Num de P.C. </th>
+                                                    <th style="text-align: center;"> Année </th>
+                                                    <th style="text-align: center;">Actions</th>
+                                            </tr>
+                                    </thead>   
+                                    <tbody>
+                                        <tr>
+                                                  <td class="center">Toure</td>
+                                                  <td class="center">Moussa</td>
+                                                  <td class="center">01-14-05152015</td>
+                                                  <td class="center" >
+                                                          <span class="label label-warning">2014</span>
+                                                  </td>
+                                                  <td class="center" style="text-align: center;">
+                                                          <button class="btn btn-primary btn-attrib" ng-click="modalInfosChauff()">
+                                                                  
+                                                                  Infos
+                                                          </button>
+                                                          
+                                                          <a class="btn btn-primary" href="#">
+                                                                  <i class="icon-trash icon-white"></i> 
+                                                                  Delete
+                                                          </a>
+                                                  </td>
+                                          </tr>
+                                    
+
+
+                                    </tbody>
+                                </table> 
+                            </div>
+                            <div ng-hide="tabChauff">
+                                <h3 align="center">Liste des Vehicules</h3>
+                                <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                                    <thead>
+                                            <tr>
+                                                    <th style="text-align: center;"> Matricule </th>
+                                                    <th style="text-align: center;"> Serie </th>
+                                                    <th style="text-align: center;"> Année </th>
+                                                    <th style="text-align: center;">Actions</th>
+                                            </tr>
+                                    </thead>   
+                                    <tbody>
+                                        <tr>
+                                                  <td class="center">339 EP 01</td>
+                                                  <td class="center">Mercedes Benz</td>
+                                                  <td class="center" >
+                                                          <span class="label label-warning">2014</span>
+                                                  </td>
+                                                  <td class="center" style="text-align: center;">
+                                                          <a class="btn btn-primary btn-attrib" href="#">
+                                                                  <i class="icon-trash icon-white"></i> 
+                                                                  Infos
+                                                          </a>
+                                                          <a class="btn btn-primary" href="#">
+                                                                  <i class="icon-trash icon-white"></i> 
+                                                                  Attribuer
+                                                          </a>
+                                                          <a class="btn btn-primary" href="#">
+                                                                  <i class="icon-trash icon-white"></i> 
+                                                                  Delete
+                                                          </a>
+                                                  </td>
+                                          </tr>
+                                    
+
+
+                                    </tbody>
+                                </table> 
+                            </div>
+                            	
+			</section>
+		</div>
+	</section><!-- call_to_action End -->
+
+	<footer>
+            <div ng-include="'Inc/footer.html'"></div>
+	</footer><!-- footer End -->
+        
+        <div id="infosChauff" class="modal  hide">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button" ng-click="infosChauffClose()">&times;</button>
+                        <h3>Modal header</h3>
+                </div>
+                <div class="modal-body">
+                        <p>Modal Example Body</p>
+                </div>
+                <div class="modal-footer">
+                        <p>Modal Example footer</p>
+                </div>
+        </div>

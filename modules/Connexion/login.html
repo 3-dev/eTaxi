@@ -1,0 +1,70 @@
+
+	<section class="billboard">
+		<header>
+                    <div ng-include="'Inc/menu.html'"></div>
+		</header>
+
+		<div ng-include="'Inc/section_caption.html'"></div>
+	</section><!-- Billboard End -->
+
+	
+
+	<section class="call_to_action">
+		<div class="wrapper">
+			<img src="img/cta_image.png" alt="" title="">
+			<section class="cta_desc">
+				<form ng-submit="Connect()" class="form-signin" action="" method="POST" style="width:250px; margin-left: auto; margin-right: auto;" >
+                                    <h3 class="form-signin-heading" style="text-align: center;">SE CONNECTER</h3>
+                                    <div class="alert alert-error" ng-show="statusConnexion=='echec'">
+                                        <button ng-click="statusConnexion='echec'" data-dismiss="alert">&times;</button>
+                                        <strong>Error!</strong> Login / Mot de passe Incorrect.
+                                    </div>
+                                    <div class="input-group">
+                                        <table>
+                                            <tr>
+                                                <td><span>Login : </span></td>
+                                                <td><input type="text" class="input-block-level" placeholder="login" name="login" ng-model="User.log_users"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span>Mot de passe : </span></td>
+                                                <td><input type="password" class="input-block-level" placeholder="mot de passe" name="password" ng-model="User.pass_users"></td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td colspan="2">
+                                                    
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <br>
+                                        
+                                       <label class="radio-inline">
+                                           <input type="radio" value="client" ng-model="checkType"> Client
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="proprietaire" ng-model="checkType" ng-checked="true"> Proprietaire
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="administrateur" ng-model="checkType"> Admin
+                                        </label>
+                                        <br/><br>
+                                        <button class="btn btn-large btn-primary" type="submit" name="sign">Connexion</button>
+                                    </div>
+                                    
+                              </form>
+			</section>
+		</div>
+	</section><!-- call_to_action End -->
+
+	
+
+	
+
+	<footer>
+            <div ng-include="'Inc/footer.html'"></div>
+	</footer><!-- footer End -->
+        
