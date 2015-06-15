@@ -1,10 +1,10 @@
 var res;
 var stateConnexion = false;
-var myApp = angular.module("eTaxi",['ngWebSocket'])
+var myApp = angular.module("eTaxi",['ngWebSocket','ngCookies'])
 
 .factory('Messages',function($websocket)
 {
-var ws = $websocket('ws://67.230.191.199:1011');
+var ws = $websocket('ws://96.45.176.75:1011');
 var collection = [];
 
 ws.onMessage(function(event){
@@ -68,7 +68,7 @@ ws.send(JSON.stringify(message));
                 otherwise({redirectTo: '/Acceuil'});
 }])
 
-.controller('eTaxiLogin', function($scope,$timeout,Messages){
+.controller('eTaxiLogin', function($scope,$timeout,$cookieStore,Messages){
     $scope.Title = "Authentification";
     
     $scope.typeconnexion="";
@@ -95,7 +95,7 @@ ws.send(JSON.stringify(message));
     };
     
     $scope.initialise = function(){
-        //$scope.getConfig();
+        $scope.verifierCompte();
     }
     
     $scope.Connect=function(){
@@ -109,7 +109,7 @@ ws.send(JSON.stringify(message));
         {
             
 
-            var data = {'action':"connexion",'pass':$scope.User.pass_users,'login':$scope.User.log_users,'type':$scope.User.profil_users};
+            var data = {'action':"connexion",'info':{'pass':$scope.User.pass_users,'login':$scope.User.log_users,'type':$scope.User.profil_users}};
             Messages.send(data);
             //$scope.submit(data);
             
@@ -206,6 +206,19 @@ ws.send(JSON.stringify(message));
     });
     $scope.new_message = '';
   };
+  
+  $scope.verifierCompte = function(){
+        var cookie = $cookieStore.get('compte');
+        //alert (cookie);
+        if((cookie == null) || (cookie == 'null') || (typeof(cookie) == 'undefined')){
+            //alert("connexion null");
+            $cookieStore.put('compte', null);
+            
+        }else{
+            
+            alert("veuillez vous deconnecter d'abord");
+        }
+    };
 })
 
 .controller('eTaxiAcceuil', function($scope,Messages){
